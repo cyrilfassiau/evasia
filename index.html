@@ -21,23 +21,23 @@
   </head>
   <body>
     <header>
-  <nav class="navbar">
-    <div class="nav_logo">EVASIA</div>
+      <nav class="navbar">
+        <img src="images/evasia.png" class="nav_logo" />
 
-    <ul class="nav_links">
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#whatwedo">Ce qu'on fait</a></li>
-      <li><a href="#voyages">Voyages</a></li>
-      <li><a href="#contacts">Contact</a></li>
-    </ul>
+        <ul class="nav_links">
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#whatwedo">Ce qu'on fait</a></li>
+          <li><a href="#voyages">Voyages</a></li>
+          <li><a href="#contacts">Contact</a></li>
+        </ul>
 
-    <div class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-</header>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
     <main>
       <section id="header">
         <div class="header_title">
@@ -95,7 +95,7 @@
             </div>
             <div class="icon1">
               <i class="fa-solid fa-person-hiking"></i>
-              <span>Itinéraires sur-mesure solo traveler</span>
+              <span>Itinéraires solo traveler</span>
             </div>
             <div class="icon1">
               <i class="fa-solid fa-book"></i>
@@ -159,24 +159,22 @@
     </main>
     <footer></footer>
     <script>
-  const burger = document.querySelector('.burger');
-  const navLinks = document.querySelector('.nav_links');
-  const navItems = document.querySelectorAll('.nav_links a');
+      const burger = document.querySelector(".burger");
+      const navLinks = document.querySelector(".nav_links");
+      const navItems = document.querySelectorAll(".nav_links a");
 
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    burger.classList.toggle('toggle');
-  });
+      burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        burger.classList.toggle("toggle");
+      });
 
-  // Ferme le menu au clic sur un lien (sur mobile)
-  navItems.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      burger.classList.remove('toggle');
-    });
-  });
-</script>
-
+      // Ferme le menu au clic sur un lien (sur mobile)
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          burger.classList.remove("toggle");
+        });
+      });
+    </script>
   </body>
 </html>
-
