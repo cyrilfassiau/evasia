@@ -17,7 +17,10 @@ Tags: responsive, portfolio, html5
   font-weight: normal;
   font-style: normal;
 }
-
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
 html {
   scroll-behavior: smooth;
 }
@@ -248,13 +251,15 @@ img {
   width: 90%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: white;
   gap: 40px;
 }
 
 .contacts_bigtext {
-  font-size: 60px;
+  font-size: 90px;
   font-weight: bold;
   font-family: "nagistademo", sans-serif;
   flex: 1 1 40%;

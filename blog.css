@@ -1,0 +1,122 @@
+/* ===== BLOG PAGE ===== */
+.blog-page {
+  width: 100%;
+  padding-top: 120px; /* espace pour navbar fixée */
+  background-color: #fff;
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* En-tête du blog */
+.blog-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.blog-header h1 {
+  font-family: "nagistademo", sans-serif;
+  font-size: 80px;
+  color: #b7a58a;
+  margin-bottom: 10px;
+}
+
+.blog-header p {
+  font-size: 18px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grille des articles */
+.blog-container {
+  max-width: 1140px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.blog-card {
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.blog-content h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.blog-content p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #a9b79f;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1024px) {
+  .blog-header h1 {
+    font-size: 60px;
+  }
+  .blog-header p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .blog-header h1 {
+    font-size: 40px;
+  }
+  .blog-header p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .blog-content h2 {
+    font-size: 18px;
+  }
+  .blog-content p {
+    font-size: 14px;
+  }
+}
