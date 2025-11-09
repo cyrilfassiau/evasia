@@ -11,22 +11,18 @@
       src="https://kit.fontawesome.com/ca71dbf907.js"
       crossorigin="anonymous"
     ></script>
+    <script src="script.js"></script>
     <link href="https://fonts.cdnfonts.com/css/nagista" rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Josefin Sans"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <!-- <nav class="navbar">
-        <img
-          src="https://res.cloudinary.com/dxr1hlpd2/image/upload/v1762507590/evasia_resized_ai8yrc.png"
-          class="nav_logo"
-        />
-
+      <nav class="navbar">
         <ul class="nav_links">
           <li><a href="#about">À propos</a></li>
           <li><a href="#whatwedo">Ce qu'on fait</a></li>
@@ -39,7 +35,7 @@
           <span></span>
           <span></span>
         </div>
-      </nav> -->
+      </nav>
     </header>
     <main>
       <section id="header">
@@ -189,41 +185,41 @@
         </div>
       </section>
       <section class="formcarry-container">
-        <form action="#" method="POST" enctype="multipart/form-data">
-          <div class="formcarry-block">
-            <label for="fc-generated-1-name">Nom complet</label>
-            <input
-              type="text"
-              name="name"
-              id="fc-generated-1-name"
-              placeholder="Votre nom complet"
-            />
-          </div>
-
-          <div class="formcarry-block">
-            <label for="fc-generated-1-email">Adresse email</label>
-            <input
-              type="email"
-              name="email"
-              id="fc-generated-1-email"
-              placeholder="john@doe.com"
-            />
-          </div>
-
-          <div class="formcarry-block">
-            <label for="fc-generated-1-message">Votre message</label>
-            <textarea
-              name="message"
-              name="message"
-              id="fc-generated-1-message"
-              placeholder="Ecrivez votre message..."
-            ></textarea>
-          </div>
-
-          <div class="formcarry-block">
-            <button type="submit">Envoyer</button>
-          </div>
+        <h1>Besoin d'une information? N'hesite pas a nous contacter!</h1>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="text" name="name" placeholder="Nom" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button type="submit">Envoyer</button>
         </form>
+      </section>
+      <section class="travel-form">
+        <div class="formcarry-container" id="travel-form">
+          <h1>
+            Tu veux partir a Bali? Remplis ce formulaire et nous preparerons ta
+            prochaine aventure !
+          </h1>
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="form"
+          >
+            <span>Question</span>
+            <input type="text" name="name" placeholder="Question1" required />
+            <span>Question</span>
+            <input type="email" name="email" placeholder="Question2" required />
+            <span>Question</span>
+            <input type="email" name="email" placeholder="Question3" required />
+            <span>Question</span>
+            <input type="email" name="email" placeholder="Question4" required />
+            <span>Question</span>
+            <input type="email" name="email" placeholder="Question5" required />
+            <span>Question</span>
+            <input type="email" name="email" placeholder="Question6" required />
+
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
       </section>
     </main>
     <footer></footer>
