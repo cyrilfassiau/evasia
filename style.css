@@ -1,16 +1,3 @@
-/*
-Theme Name: Mon super thème
-Theme URI: https://monsite.com
-Author: Ton Nom
-Author URI: https://tonportfolio.com
-Description: Mon premier thème WordPress basé sur un site HTML/CSS
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: mon-theme
-Tags: responsive, portfolio, html5
-*/
-
 @font-face {
   font-family: "nagistademo";
   src: url("fonts/nagista-demo-version.regular.ttf") format("truetype");
@@ -53,7 +40,7 @@ img {
   width: 100%;
   height: 791px;
   font-family: "nagistademo", sans-serif;
-  background-position: 5% 15%;
+  background-position: 30% 60%;
 }
 
 .video {
@@ -418,6 +405,7 @@ form {
 .form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .form button {
@@ -427,10 +415,6 @@ form {
 #travel-form form span {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-}
-
-form span {
-  margin-top: 40px;
 }
 
 /* FOOTER */
@@ -595,6 +579,9 @@ footer {
     gap: 25px;
   }
 
+  .about_img {
+    margin-bottom: 20px;
+  }
   .about_img,
   .about_text {
     width: 100%;

@@ -3,127 +3,185 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog | EVASIA</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- CSS -->
+    <title>Blog EVASIA</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="blog.css" />
+    <script
+      src="https://kit.fontawesome.com/a2d9d5a94e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
+
   <body>
-    <!-- ====== NAVBAR ====== -->
-    <header>
-      <nav class="navbar">
-        <ul class="nav_links">
-          <li><a href="index.html">Accueil</a></li>
-        </ul>
-        <div class="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <ul class="nav_links">
+        <li><a href="index.html#header">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#voyages">Voyages</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contacts">Contact</a></li>
+      </ul>
+      <div class="burger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- HEADER -->
+    <header
+      id="header"
+      style="
+        background-image: url('images/blog-header.jpg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="header_title">
+        <h1>Le Blog</h1>
+      </div>
     </header>
 
-    <!-- ====== CONTENU PRINCIPAL ====== -->
-    <main class="blog-page">
-      <section class="blog-header">
-        <h1>Bali</h1>
-        <p>Découvrez ce magnifique pays</p>
-      </section>
-
-      <section class="blog-container">
-        <div class="blog-grid">
-          <!-- Article 1 -->
-          <article class="blog-card">
-            <a href="single.html">
-              <div class="blog-image">
-                <img
-                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-                  alt="Bali aventure"
-                />
-              </div>
-              <div class="blog-content">
-                <h2>Les plus beaux temples de Bali</h2>
-                <p>
-                  Explorez les sanctuaires mystiques et les paysages enchanteurs
-                  de l'île des dieux.
-                </p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Article 2 -->
-          <article class="blog-card">
-            <a href="#">
-              <div class="blog-image">
-                <img
-                  src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308"
-                  alt="Voyage solo"
-                />
-              </div>
-              <div class="blog-content">
-                <h2>Voyager en solo : oser la liberté</h2>
-                <p>
-                  Se découvrir soi-même à travers le monde, une aventure
-                  intérieure inoubliable.
-                </p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Article 3 -->
-          <article class="blog-card">
-            <a href="#">
-              <div class="blog-image">
-                <img
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-                  alt="Ubud"
-                />
-              </div>
-              <div class="blog-content">
-                <h2>Nos adresses secrètes à Ubud</h2>
-                <p>
-                  Entre jungle, rizières et cafés bohèmes, nos coups de cœur du
-                  cœur de Bali.
-                </p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Article 4 -->
-          <article class="blog-card">
-            <a href="#">
-              <div class="blog-image">
-                <img
-                  src="https://images.unsplash.com/photo-1493558103817-58b2924bce98"
-                  alt="Culture balinaise"
-                />
-              </div>
-              <div class="blog-content">
-                <h2>Rencontrer la culture balinaise</h2>
-                <p>
-                  Une immersion dans les traditions, l’art et la spiritualité de
-                  l’île.
-                </p>
-              </div>
-            </a>
-          </article>
+    <!-- SECTION BLOG -->
+    <main id="blog">
+      <section class="blog_container">
+        <div class="about_all">
+          <div class="about_center">
+            <h2 class="about_title">Nos articles récents</h2>
+          </div>
+          <div id="blog-grid" class="blog_grid">
+            <!-- Les articles seront injectés ici via JS -->
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- ====== FOOTER ====== -->
-    <footer>
-      <p>© 2025 EVASIA — Tous droits réservés</p>
+    <!-- FOOTER -->
+    <footer
+      style="
+        background-color: #b7a58a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      "
+    >
+      <p>© 2025 EVASIA - Tous droits réservés</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- SCRIPT -->
+    <script>
+      // === MENU BURGER ===
+      const burger = document.querySelector(".burger");
+      const navLinks = document.querySelector(".nav_links");
+      burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        burger.classList.toggle("toggle");
+      });
+
+      // === CHARGEMENT DES ARTICLES ===
+      const sheetURL =
+        "https://opensheet.elk.sh/1bAv_iJ0U1hETDp5CAgwRIZacgwNJ0E8F7YfBKEMz7u8/Feuille1"; // 🔁 Mets ici ton lien OpenSheet
+
+      async function loadBlog() {
+        try {
+          const response = await fetch(sheetURL);
+          const data = await response.json();
+
+          const container = document.getElementById("blog-grid");
+          container.innerHTML = "";
+
+          data.forEach((article) => {
+            const card = document.createElement("div");
+            card.classList.add("blog_card");
+
+            card.innerHTML = `
+            <img src="${article.image}" alt="${article.titre}">
+            <div class="blog_content">
+              <h3>${article.titre}</h3>
+              <p>${article.extrait}</p>
+              <a href="single.html?id=${article.id}" class="btn">Lire la suite</a>
+            </div>
+          `;
+            container.appendChild(card);
+          });
+        } catch (error) {
+          console.error("Erreur de chargement :", error);
+        }
+      }
+
+      loadBlog();
+    </script>
+
+    <!-- STYLES SUPPLÉMENTAIRES POUR LE BLOG -->
+    <style>
+      .blog_container {
+        background-color: #fff;
+        padding: 100px 0;
+      }
+
+      .blog_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .blog_card {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .blog_card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .blog_card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .blog_content {
+        padding: 20px;
+      }
+
+      .blog_content h3 {
+        font-family: "nagistademo", sans-serif;
+        color: #b7a58a;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .blog_content p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #444;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #d28864;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #b76e49;
+      }
+
+      @media screen and (max-width: 768px) {
+        .blog_content h3 {
+          font-size: 22px;
+        }
+      }
+    </style>
   </body>
 </html>

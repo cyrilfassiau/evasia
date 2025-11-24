@@ -200,25 +200,135 @@
             Tu veux partir a Bali? Remplis ce formulaire et nous preparerons ta
             prochaine aventure !
           </h1>
-          <form method="POST" class="form">
-            <span>Question</span>
-            <input type="text" name="name" placeholder="Question1" required />
-            <span>Question</span>
-            <input type="email" name="email" placeholder="Question2" required />
-            <span>Question</span>
-            <input type="email" name="email" placeholder="Question3" required />
-            <span>Question</span>
-            <input type="email" name="email" placeholder="Question4" required />
-            <span>Question</span>
-            <input type="email" name="email" placeholder="Question5" required />
-            <span>Question</span>
-            <input type="email" name="email" placeholder="Question6" required />
+          <form id="travelForm" class="form">
+            <span>Nom</span>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nom"
+              required
+              autocomplete="off"
+            />
+            <span>Prénom</span>
+            <input
+              type="text"
+              name="name"
+              placeholder="Prénom"
+              required
+              autocomplete="off"
+            />
+            <span>Adresse email</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              autocomplete="off"
+            />
+            <span>Date du départ</span>
+            <input
+              type="date"
+              name="date"
+              placeholder="Date du voyage"
+              required
+              autocomplete="off"
+            />
+            <span>Durée du voyage</span>
+            <input
+              type="number"
+              name="duree"
+              placeholder="Durée du voyage"
+              min="0"
+              max="100"
+              required
+              autocomplete="off"
+            />
+            <span>Nombre de voyageurs</span>
+            <input
+              type="number"
+              name="nbre"
+              placeholder="Nombre de voyageurs"
+              min="0"
+              max="100"
+              required
+              autocomplete="off"
+            />
+            <span
+              >Type de voyage (solo, en couple, en famille, entre
+              amis,...)</span
+            >
+            <input
+              type="text"
+              name="type"
+              placeholder="Type de voyage"
+              required
+              autocomplete="off"
+            />
+            <span>Budget par personne hors vols (en euros)</span>
+            <input
+              type="text"
+              name="budget"
+              placeholder="Budget par personnes"
+              required
+              autocomplete="off"
+            />
+            <span>Vos envies pour ce voyage</span>
+            <textarea
+              type="text"
+              name="envies"
+              placeholder="Vos envies (champs libre)"
+              required
+            ></textarea>
 
             <button type="submit">Envoyer</button>
+            <p
+              id="formSuccess"
+              style="
+                display: none;
+                color: white;
+                font-size: 20px;
+                margin-top: 20px;
+              "
+            >
+              Votre message a bien été envoyé ✔️
+            </p>
           </form>
         </div>
       </section>
     </main>
     <footer></footer>
+    <script>
+      document
+        .getElementById("travelForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // Empêche la redirection
+
+          const form = e.target;
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          try {
+            await fetch(
+              "https://formsubmit.co/ajax/cyril.fassiau@hotmail.com",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                },
+                body: JSON.stringify(data),
+              }
+            );
+
+            // Affiche le message
+            document.getElementById("formSuccess").style.display = "block";
+
+            // Reset du formulaire
+            form.reset();
+          } catch (error) {
+            console.error("Erreur d'envoi", error);
+          }
+        });
+    </script>
   </body>
 </html>
