@@ -260,6 +260,35 @@ img {
   padding-top: 15px;
 }
 
+.contacts_box button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  height: 40px;
+  line-height: 24px;
+  width: 20%;
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: hsla(var(--fc-primary-hsl));
+  --fc-border-color: #eceff9;
+  --fc-normal-text-color: #0e0b3d;
+  --fc-normal-placeholder-color: #b3b8d0;
+
+  /* PRIMARY COLOR | HSL FORMAT*/
+  --fc-primary-color-hue: 18;
+  --fc-error-color-hue: 356;
+  --fc-primary-hsl: var(--fc-primary-color-hue), 93%, 62%;
+  --fc-error-hsl: var(--fc-error-color-hue), 100%, 54%;
+
+  /* HOVER */
+  --fc-field-hover-bg-color: #f7f9fc;
+  --fc-border-hover-color: #dde0ee;
+  --fc-field-hover-text-color: #b3b8d0;
+
+  --fc-border-active-color: #1463ff;
+}
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
 .formcarry-container {
