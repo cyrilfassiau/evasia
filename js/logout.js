@@ -8,8 +8,8 @@ logoutBtn.addEventListener("click", async (e) => {
 
   try {
     await signOut(auth); // déconnecte l'utilisateur
-    alert("Vous êtes bien déconnecté !");
-    window.location.href = "login.html"; // redirection après logout
+    
+    window.location.href = "index.html"; // redirection après logout
   } catch (error) {
     console.error("Erreur lors de la déconnexion :", error);
     alert("Impossible de se déconnecter, réessayez.");
