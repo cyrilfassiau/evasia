@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/js/register.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -42,19 +43,25 @@
               <div class="input-boxes">
                 <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input type="text" placeholder="Ton email" required />
+                  <input
+                    id="email"
+                    type="text"
+                    placeholder="Ton email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
                   <input
                     type="password"
+                    id="password"
                     placeholder="Ton mot de passe"
                     required
                   />
                 </div>
                 <div class="text"><a href="#">Mot de passe oublié?</a></div>
                 <div class="button input-box">
-                  <input type="submit" value="Se connecter" />
+                  <input id="connect" type="submit" value="Se connecter" />
                 </div>
                 <div class="text sign-up-text">
                   Tu n'as pas de compte? <label for="flip">Inscris-toi !</label>
@@ -67,23 +74,25 @@
             <form action="#">
               <div class="input-boxes">
                 <div class="input-box">
-                  <i class="fas fa-user"></i>
-                  <input type="text" placeholder="Ton pseudo" required />
-                </div>
-                <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input type="text" placeholder="Ton email" required />
+                  <input
+                    id="email"
+                    type="text"
+                    placeholder="Ton email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
                   <input
                     type="password"
+                    id="password"
                     placeholder="Ton mot de passe"
                     required
                   />
                 </div>
                 <div class="button input-box">
-                  <input type="submit" value="S'inscrire" />
+                  <button id="submit" type="submit" value="S'inscrire"></button>
                 </div>
                 <div class="text sign-up-text">
                   Deja un compte? <label for="flip">Connecte toi</label>

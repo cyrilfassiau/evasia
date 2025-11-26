@@ -714,6 +714,7 @@ footer {
   #travel-form textarea {
     font-size: 14px;
     width: 100%;
+    background-color: white;
   }
 
   .formcarry-container textarea,
