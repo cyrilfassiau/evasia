@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 
-// Firebase config
+// --- Firebase config ---
 const firebaseConfig = {
   apiKey: "AIzaSyBQMZvA5-qh18IF3g_OsxBgGUuz0NrXQfw",
   authDomain: "evasia-3350f.firebaseapp.com",
@@ -15,11 +15,25 @@ const firebaseConfig = {
   measurementId: "G-V3FMPJ6JG3"
 };
 
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+
+
+// ============================
+//         MODALE
+// ============================
+
+function openModal(message) {
+  document.getElementById("modal-message").textContent = message;
+  document.getElementById("modal").style.display = "flex";
+}
+
+document.getElementById("modal-close").addEventListener("click", () => {
+  document.getElementById("modal").style.display = "none";
+  window.location.href = "login.html"; // redirection après fermeture modale
+});
 
 
 
@@ -32,12 +46,11 @@ const signupBtn = document.getElementById("submit");
 signupBtn.addEventListener("click", async function (event) {
   event.preventDefault();
 
-  const email = document.getElementById("signup-email").value;
-  const password = document.getElementById("signup-password").value;
-  const username = document.getElementById("signup-username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  if (!email || !password || !username) {
-    alert("Merci de remplir tous les champs");
+  if (!email || !password) {
+    openModal("Merci de remplir tous les champs.");
     return;
   }
 
@@ -45,19 +58,17 @@ signupBtn.addEventListener("click", async function (event) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Save username in Firestore
     await setDoc(doc(db, "users", user.uid), {
       email: email,
-      username: username,
       createdAt: new Date(),
       role: "user"
     });
 
-    alert("Compte créé avec succès !");
-    window.location.href = "login.html";
+    // 🎉 Affiche modale de succès
+    openModal("Compte créé avec succès !");
 
   } catch (error) {
-    alert(error.message);
+    openModal(error.message);
   }
 });
 
@@ -76,17 +87,15 @@ loginBtn.addEventListener("click", async function (event) {
   const password = document.getElementById("password-login").value;
 
   if (!email || !password) {
-    alert("Merci de remplir tous les champs");
+    openModal("Merci de remplir tous les champs.");
     return;
   }
 
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    
-    alert("Connexion réussie !");
-    window.location.href = "connected.html"; // change si besoin
+    await signInWithEmailAndPassword(auth, email, password);
+    window.location.href = "connected.html"; 
 
   } catch (error) {
-    alert(error.message);
+    openModal(error.message);
   }
 });

@@ -10,7 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <script type="module" src="https://cyrilfassiau.github.io/evasia/js/register.js" defer></script>
+    <script type="module" src="js/register.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -81,15 +81,7 @@
                     required
                   />
                 </div>
-                <div class="input-box">
-                  <i class="fas fa-address-card"></i>
-                  <input
-                    id="username"
-                    type="text"
-                    placeholder="Ton pseudo"
-                    required
-                  />
-                </div>
+
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
                   <input
@@ -100,8 +92,9 @@
                   />
                 </div>
                 <div class="button input-box">
-                  <button id="submit" type="submit" value="S'inscrire"></button>
+                  <input id="submit" type="submit" value="S'inscrire" />
                 </div>
+
                 <div class="text sign-up-text">
                   Deja un compte? <label for="flip">Connecte toi</label>
                 </div>
@@ -109,6 +102,12 @@
             </form>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h2 id="modal-message"></h2>
+        <button id="modal-close">OK</button>
       </div>
     </div>
   </body>

@@ -190,6 +190,41 @@ body {
 .container #flip {
   display: none;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none; /* 🚨 caché par défaut */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 80%;
+  max-width: 350px;
+  font-family: sans-serif;
+}
+
+#modal-close {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #56b870;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 @media (max-width: 730px) {
   .container .cover {
     display: none;
@@ -206,5 +241,103 @@ body {
   }
   .container #flip:checked ~ .forms .login-form {
     display: none;
+  }
+}
+
+.jours-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.jour-card {
+  background-color: #d28864; /* couleur comme #whatwedo */
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.jour-card:hover {
+  transform: translateY(-5px);
+}
+
+.jour-card h3 {
+  font-family: "nagistademo", sans-serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.jour-card p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Itinéraires */
+.itineraire-card {
+  background-color: #b7a58a; /* Couleur principale site */
+  color: white;
+  border-radius: 15px;
+  padding: 25px 30px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-family: "Montserrat", sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.itineraire-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.itineraire-card h2 {
+  font-family: "nagistademo", sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #fff7e6;
+}
+
+.itineraire-card p {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.itineraire-card ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.itineraire-card ul li {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.itineraire-card ul li strong {
+  color: #ffdca8;
+  margin-right: 5px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .itineraire-card {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .itineraire-card h2 {
+    font-size: 28px;
+  }
+
+  .itineraire-card p,
+  .itineraire-card ul li {
+    font-size: 16px;
   }
 }

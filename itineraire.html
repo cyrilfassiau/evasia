@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Itinéraire</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="js/itineraire.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="dashboard.html" class="nav_logo">🏕️</a>
+      <ul class="nav_links">
+        <li><a href="user.html">Dashboard</a></li>
+        <li><a href="logout.html">Déconnexion</a></li>
+      </ul>
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <main>
+      <section id="itineraire" class="travel-form">
+        <h1>Planning du voyage</h1>
+        <div id="jours-container" class="jours-container">
+          <!-- Les jours seront injectés ici par JS -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

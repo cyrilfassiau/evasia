@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin - Créer un itinéraire</title>
+    <script type="module" src="js/admin.js" defer></script>
+  </head>
+  <body>
+    <h1>Admin - Ajouter un itinéraire pour un utilisateur</h1>
+
+    <form id="itineraire-form">
+      <label for="user-select">Choisir un utilisateur :</label>
+      <select id="user-select" required>
+        <option value="">-- Sélectionnez un utilisateur --</option>
+      </select>
+
+      <label for="titre">Titre du voyage :</label>
+      <input type="text" id="titre" placeholder="Titre du voyage" required />
+
+      <label for="nbJours">Nombre de jours :</label>
+      <input
+        type="number"
+        id="nbJours"
+        placeholder="Nombre de jours"
+        required
+        min="1"
+      />
+
+      <label for="description">Description :</label>
+      <textarea
+        id="description"
+        placeholder="Description du voyage"
+        required
+      ></textarea>
+
+      <div id="jours-container">
+        <!-- Les champs pour chaque jour seront ajoutés dynamiquement -->
+      </div>
+
+      <button type="submit">Créer l'itinéraire</button>
+    </form>
+  </body>
+</html>
