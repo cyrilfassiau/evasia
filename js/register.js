@@ -1,89 +1,92 @@
-// Import the functions you need from the SDKs you need
-
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// Import Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
 
-  // Your web app's Firebase configuration
-
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-  const firebaseConfig = {
-
-    apiKey: "AIzaSyBQMZvA5-qh18IF3g_OsxBgGUuz0NrXQfw",
-
-    authDomain: "evasia-3350f.firebaseapp.com",
-
-    projectId: "evasia-3350f",
-
-    storageBucket: "evasia-3350f.firebasestorage.app",
-
-    messagingSenderId: "895340212560",
-
-    appId: "1:895340212560:web:bccdb5f341a4705a0f7c55",
-
-    measurementId: "G-V3FMPJ6JG3"
-
-  };
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyBQMZvA5-qh18IF3g_OsxBgGUuz0NrXQfw",
+  authDomain: "evasia-3350f.firebaseapp.com",
+  projectId: "evasia-3350f",
+  storageBucket: "evasia-3350f.firebasestorage.app",
+  messagingSenderId: "895340212560",
+  appId: "1:895340212560:web:bccdb5f341a4705a0f7c55",
+  measurementId: "G-V3FMPJ6JG3"
+};
 
 
-  // Initialize Firebase
-
-  const app = initializeApp(firebaseConfig);
-
-  const analytics = getAnalytics(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 
-const submit = document.getElementById('submit');
-submit.addEventListener("click",function(event){
-event.preventDefault()
-const email = document.getElementById('email').value;
-const password = document.getElementById('password').value;
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
+// ============================
+//   SIGNUP (Create account)
+// ============================
+
+const signupBtn = document.getElementById("submit");
+
+signupBtn.addEventListener("click", async function (event) {
+  event.preventDefault();
+
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+  const username = document.getElementById("signup-username").value;
+
+  if (!email || !password || !username) {
+    alert("Merci de remplir tous les champs");
+    return;
+  }
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    alert('creating account')
+
+    // Save username in Firestore
+    await setDoc(doc(db, "users", user.uid), {
+      email: email,
+      username: username,
+      createdAt: new Date(),
+      role: "user"
+    });
+
+    alert("Compte créé avec succès !");
     window.location.href = "login.html";
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-    // ..
-  });
-  
 
-})
-const connect = document.getElementById('connect');
-connect.addEventListener("click",function(event){
-event.preventDefault()
-const email = document.getElementById('email').value;
-const password = document.getElementById('password').value;
+  } catch (error) {
+    alert(error.message);
+  }
+});
 
-const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    window.location.href = "connected.html";
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-  });
-  
 
-})
 
+// ============================
+//       LOGIN (Connect)
+// ============================
+
+const loginBtn = document.getElementById("connect");
+
+loginBtn.addEventListener("click", async function (event) {
+  event.preventDefault();
+
+  const email = document.getElementById("email-login").value;
+  const password = document.getElementById("password-login").value;
+
+  if (!email || !password) {
+    alert("Merci de remplir tous les champs");
+    return;
+  }
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    
+    alert("Connexion réussie !");
+    window.location.href = "connected.html"; // change si besoin
+
+  } catch (error) {
+    alert(error.message);
+  }
+});
