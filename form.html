@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.cdnfonts.com/css/nagista" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="travel-form">
+      <div class="formcarry-container" id="travel-form">
+        <h1>
+          Tu veux partir à Bali? Remplis ce formulaire et nous préparerons ta
+          prochaine aventure !
+        </h1>
+        <form id="travelForm" class="form">
+          <span>Nom</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nom"
+            required
+            autocomplete="off"
+          />
+          <span>Prénom</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Prénom"
+            required
+            autocomplete="off"
+          />
+          <span>Adresse email</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            autocomplete="off"
+          />
+          <span>Date du départ</span>
+          <input
+            type="date"
+            name="date"
+            placeholder="Date du voyage"
+            required
+            autocomplete="off"
+          />
+          <span>Durée du voyage</span>
+          <select autocomplete="off">
+            <option value=""></option>
+            <option value="10">10 jours</option>
+            <option value="20">15 jours</option>
+            <option value="30">20 jours</option>
+          </select>
+          <span>Nombre de voyageurs</span>
+          <input
+            type="number"
+            name="nbre"
+            placeholder="Nombre de voyageurs"
+            min="0"
+            max="100"
+            required
+            autocomplete="off"
+          />
+          <span
+            >Type de voyage (solo, en couple, en famille, entre amis,...)</span
+          >
+          <input
+            type="text"
+            name="type"
+            placeholder="Type de voyage"
+            required
+            autocomplete="off"
+          />
+          <span>Budget par personne hors vols (en euros)</span>
+          <input
+            type="text"
+            name="budget"
+            placeholder="Budget par personnes"
+            required
+            autocomplete="off"
+          />
+          <span>Tes envies pour ce voyage</span>
+          <textarea
+            type="text"
+            name="envies"
+            placeholder="Tes envies (champs libre)"
+            required
+          ></textarea>
+
+          <button type="submit">Envoyer</button>
+          <p
+            id="formSuccess"
+            style="
+              display: none;
+              color: white;
+              font-size: 20px;
+              margin-top: 20px;
+            "
+          >
+            Votre message a bien été envoyé ✔️
+          </p>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

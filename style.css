@@ -20,6 +20,7 @@ html {
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  color: rgb(210, 136, 100);
 }
 
 main {
@@ -39,7 +40,7 @@ img {
   position: relative;
   width: 100%;
   height: 791px;
-  font-family: "nagistademo", sans-serif;
+  font-family: "Old Standard TT", serif;
   background-position: 30% 60%;
 }
 
@@ -51,27 +52,48 @@ img {
 
 /* Conteneur du titre */
 .header_title {
-  position: absolute; /* <-- on le sort du flux normal */
-  bottom: 0; /* ancre en bas */
-  right: 0; /* aligne à droite */
-  left: 0; /* permet de centrer dans max-width */
-  max-width: 1140px; /* limite comme avant */
-  margin: 0 auto; /* centre horizontalement */
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  left: 0;
+  max-width: 1140px;
+  margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 30px;
+  gap: 30px;
+  animation: fadeInUp 2s ease-out;
 }
 
 /* Titre */
-#header h1 {
-  color: #b7a58a;
-
-  font-size: 120px;
-
-  text-align: right;
+.header_title h1 {
+  color: rgb(245, 239, 230);
+  font-size: 250px !important;
   line-height: 120px;
   margin: 0;
+}
+
+.header_title > a {
+  font-family: "Montserrat", sans-serif;
+  background-color: #d28864;
+  padding: 20px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 100ms ease-in-out;
+}
+
+.header_title > a:hover {
+  scale: 1.04;
+}
+
+.header_title > h2 {
+  color: rgb(245, 239, 230);
+  font-size: 80px;
+  line-height: 120px;
+  margin: 0;
+  text-align: center;
 }
 
 /* ABOUT */
@@ -80,6 +102,8 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 673px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .about_all {
@@ -99,6 +123,8 @@ img {
 .about_img {
   width: 50%;
   flex-shrink: 0;
+  border-radius: 50% 50% 52% 48% / 53% 58% 42% 47%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .about_text {
@@ -115,7 +141,7 @@ img {
 
 .about_title {
   font-size: 60px;
-  font-family: "nagistademo", sans-serif;
+  font-family: "Old Standard TT", serif;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -146,13 +172,16 @@ img {
 }
 
 .wwd_text {
-  max-width: 765px;
   color: white;
+  animation: fade-in linear;
+  animation-timeline: view();
+  animation-range-start: cover;
+  animation-range-end: 400px;
 }
 
 .wwd_text h1 {
   font-size: 60px;
-  font-family: "nagistademo", sans-serif;
+  font-family: "Old Standard TT", serif;
   font-weight: bold;
 }
 
@@ -161,17 +190,7 @@ img {
   line-height: 1.6;
 }
 
-.wwd_icons {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 800px;
-  margin: auto;
-  gap: 20px;
-}
-
 .icon1 {
-  flex: 1 1 256px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,16 +198,32 @@ img {
   text-align: center;
   color: white;
   gap: 20px;
+  background-color: #a9b79f;
+  width: 250px;
+  margin: auto;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.212) 0px 5px 15px;
 }
 
 .icon1 span {
-  font-size: 30px;
+  font-size: 20px;
+}
+
+.explained {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 60px;
+  text-align: center;
 }
 
 .fa-person-hiking,
 .fa-plane-departure,
 .fa-book {
-  font-size: 70px;
+  font-size: 50px;
 }
 
 /* VOYAGES */
@@ -213,16 +248,20 @@ img {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .grid-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .center {
   background-color: #fff;
-  font-size: 55px;
-  color: #333;
+  font-size: 45px;
+  color: rgb(210, 136, 100);
+  font-weight: 600;
 }
 
 /* CONTACTS */
@@ -248,7 +287,7 @@ img {
 .contacts_bigtext {
   font-size: 90px;
   font-weight: bold;
-  font-family: "nagistademo", sans-serif;
+  font-family: "Old Standard TT", serif;
   flex: 1 1 40%;
 }
 
@@ -261,7 +300,6 @@ img {
 }
 
 .contacts_box button {
-  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
@@ -295,10 +333,10 @@ img {
   box-sizing: border-box;
   margin: 40px auto 0 auto;
   padding: 0;
-  font-family: "nagistademo", sans-serif;
+  font-family: "Old Standard TT", serif;
   font-size: 25px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 50px;
   letter-spacing: -0.01em;
   max-width: 1140px;
   margin-bottom: 40px;
@@ -351,9 +389,11 @@ img {
   border-radius: 10px;
   padding: 8px 12px;
 
-  font-family: "Inter", sans-serif;
   font-size: 14px;
-  transition: 125ms background, 125ms color, 125ms box-shadow;
+  transition:
+    125ms background,
+    125ms color,
+    125ms box-shadow;
 }
 
 .formcarry-container textarea {
@@ -391,7 +431,6 @@ img {
 }
 
 .formcarry-container button {
-  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
@@ -446,6 +485,13 @@ form {
   font-size: 20px;
 }
 
+.info_services {
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
 /* FOOTER */
 footer {
   height: 80px;
@@ -455,11 +501,6 @@ footer {
 
 /* === Grand desktop === */
 @media screen and (min-width: 1440px) {
-  #header h1 {
-    font-size: 140px;
-    max-width: 500px;
-  }
-
   .grid-container {
     max-width: 1300px;
   }
