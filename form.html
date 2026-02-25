@@ -12,57 +12,52 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="form.css" />
+    <title>Formulaire Evasia</title>
   </head>
   <body>
     <section class="travel-form">
-      <div class="formcarry-container" id="travel-form">
-        <h1>
-          Tu veux partir à Bali? Remplis ce formulaire et nous préparerons ta
-          prochaine aventure !
-        </h1>
-        <form id="travelForm" class="form">
-          <span>Nom</span>
-          <input
+      <div class="contact-us">
+        <h1>Votre voyage sur-mesure</h1>
+        <form action="#">
+          <label for="customerName">Nom <em>&#x2a;</em></label
+          ><input
+            id="customerName"
+            name="customerName"
+            required=""
             type="text"
-            name="name"
-            placeholder="Nom"
-            required
-            autocomplete="off"
           />
-          <span>Prénom</span>
-          <input
+          <label for="customerName">Prénom <em>&#x2a;</em></label
+          ><input
+            id="customerSurname"
+            name="customerSurname"
+            required=""
             type="text"
-            name="name"
-            placeholder="Prénom"
-            required
-            autocomplete="off"
-          />
-          <span>Adresse email</span>
-          <input
+          /><label for="customerEmail">Email <em>&#x2a;</em></label
+          ><input
+            id="customerEmail"
+            name="customerEmail"
+            required=""
             type="email"
-            name="email"
-            placeholder="Email"
-            required
-            autocomplete="off"
           />
-          <span>Date du départ</span>
-          <input
+          <label for="departureDate">Date du départ <em>&#x2a;</em></label
+          ><input
+            id="departureDate"
             type="date"
             name="date"
             placeholder="Date du voyage"
             required
             autocomplete="off"
           />
-          <span>Durée du voyage</span>
-          <select autocomplete="off">
+          <label for="tripDuration">Durée du voyage <em>&#x2a;</em></label>
+          <select autocomplete="off" id="tripDuration">
             <option value=""></option>
             <option value="10">10 jours</option>
             <option value="20">15 jours</option>
             <option value="30">20 jours</option>
           </select>
-          <span>Nombre de voyageurs</span>
-          <input
+          <label for="customerEmail">Nombre de voyageurs <em>&#x2a;</em></label
+          ><input
             type="number"
             name="nbre"
             placeholder="Nombre de voyageurs"
@@ -70,45 +65,27 @@
             max="100"
             required
             autocomplete="off"
-          />
-          <span
-            >Type de voyage (solo, en couple, en famille, entre amis,...)</span
-          >
-          <input
-            type="text"
-            name="type"
-            placeholder="Type de voyage"
-            required
-            autocomplete="off"
-          />
-          <span>Budget par personne hors vols (en euros)</span>
-          <input
-            type="text"
-            name="budget"
-            placeholder="Budget par personnes"
-            required
-            autocomplete="off"
-          />
-          <span>Tes envies pour ce voyage</span>
-          <textarea
-            type="text"
-            name="envies"
-            placeholder="Tes envies (champs libre)"
-            required
+          /><label for="customerPhone"
+            >Type de voyage (solo, en couple, en famille, entre amis,...)
+            <em>&#x2a; </em></label
+          ><input
+            id="customerPhone"
+            name="customerPhone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            type="tel"
+          /><label for="orderNumber"
+            >Budget par personne hors vols (en euros) <em>&#x2a; </em></label
+          ><input id="orderNumber" name="orderNumber" type="text" /><label
+            for="customerNote"
+            >Vos envies pour ce voyage <em>&#x2a;</em></label
+          ><textarea
+            id="customerNote"
+            name="customerNote"
+            required=""
+            rows="4"
           ></textarea>
-
-          <button type="submit">Envoyer</button>
-          <p
-            id="formSuccess"
-            style="
-              display: none;
-              color: white;
-              font-size: 20px;
-              margin-top: 20px;
-            "
-          >
-            Votre message a bien été envoyé ✔️
-          </p>
+          <br />
+          <button id="customerOrder">SUBMIT</button>
         </form>
       </div>
     </section>

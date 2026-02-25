@@ -21,6 +21,7 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   color: rgb(210, 136, 100);
+  padding: 0px;
 }
 
 main {
@@ -871,4 +872,10 @@ footer {
   .burger.toggle span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+* {
+  margin: 0;
+  padding: 0;
 }
