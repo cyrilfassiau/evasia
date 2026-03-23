@@ -1,0 +1,56 @@
+body {
+  background-color: #d28864;
+}
+
+.info_services {
+  background: #f8f4e5;
+  color: #d28864;
+  padding: clamp(24px, 5vw, 50px) clamp(16px, 8vw, 100px);
+  width: 100%;
+  max-width: 900px;
+
+  border-radius: 12px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_services > ul {
+  text-align: left;
+}
+
+.info_services > h2,
+.info_services > h1 {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.info_services > a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  float: none;
+  width: 100%;
+  margin-top: 30px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-bottom-width: medium;
+  border-bottom-style: none;
+  border-bottom-color: currentcolor;
+  border-radius: 10px;
+  background-color: hsla(var(--fc-primary-hsl));
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transition: 0.2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  cursor: pointer;
+  --fc-primary-color-hue: 18;
+  --fc-error-color-hue: 356;
+  --fc-primary-hsl: var(--fc-primary-color-hue), 93%, 62%;
+  --fc-error-hsl: var(--fc-error-color-hue), 100%, 54%;
+}
