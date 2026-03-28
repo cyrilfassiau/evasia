@@ -16,7 +16,6 @@
     <title>Formulaire Evasia</title>
 
     <style>
-      /* ====== MODAL OVERLAY ====== */
       .modal-overlay {
         display: none;
         position: fixed;
@@ -44,7 +43,6 @@
         }
       }
 
-      /* ====== MODAL CARD ====== */
       .modal {
         background: #f8f4e5;
         border-radius: 16px;
@@ -68,7 +66,6 @@
         }
       }
 
-      /* Icône checkmark */
       .modal-icon {
         width: 64px;
         height: 64px;
@@ -105,7 +102,6 @@
         margin: 0 0 28px;
       }
 
-      /* Bouton call */
       .modal-cta {
         display: inline-block;
         background: #f45702;
@@ -127,7 +123,6 @@
         border-bottom: 2px solid #f45702;
       }
 
-      /* Bouton fermer (croix) */
       .modal-close {
         position: absolute;
         top: 14px;
@@ -152,26 +147,42 @@
         background: none;
         border-bottom: none;
       }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <section class="travel-form">
       <div class="contact-us">
         <h1>Votre voyage sur-mesure</h1>
-        <form id="travelForm" action="#">
+
+        <form
+          id="travelForm"
+          name="voyage-sur-mesure"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="voyage-sur-mesure" />
+
+          <!-- Honeypot anti-spam -->
+          <p class="hidden">
+            <label>
+              Ne pas remplir ce champ :
+              <input name="bot-field" />
+            </label>
+          </p>
+
           <label for="customerName">Nom <em>&#x2a;</em></label>
-          <input
-            id="customerName"
-            name="customerName"
-            required=""
-            type="text"
-          />
+          <input id="customerName" name="customerName" required type="text" />
 
           <label for="customerSurname">Prénom <em>&#x2a;</em></label>
           <input
             id="customerSurname"
             name="customerSurname"
-            required=""
+            required
             type="text"
           />
 
@@ -179,7 +190,7 @@
           <input
             id="customerEmail"
             name="customerEmail"
-            required=""
+            required
             type="email"
           />
 
@@ -187,18 +198,23 @@
           <input
             id="departureDate"
             type="date"
-            name="date"
+            name="departureDate"
             placeholder="Date du voyage"
             required
             autocomplete="off"
           />
 
           <label for="tripDuration">Durée du voyage <em>&#x2a;</em></label>
-          <select autocomplete="off" id="tripDuration">
+          <select
+            id="tripDuration"
+            name="tripDuration"
+            required
+            autocomplete="off"
+          >
             <option value=""></option>
-            <option value="10">10 jours</option>
-            <option value="20">15 jours</option>
-            <option value="30">20 jours</option>
+            <option value="10 jours">10 jours</option>
+            <option value="15 jours">15 jours</option>
+            <option value="20 jours">20 jours</option>
           </select>
 
           <label for="nbre">Nombre de voyageurs <em>&#x2a;</em></label>
@@ -207,30 +223,35 @@
             id="nbre"
             name="nbre"
             placeholder="Nombre de voyageurs"
-            min="0"
+            min="1"
             max="100"
             required
             autocomplete="off"
           />
 
-          <label for="customerPhone"
-            >Type de voyage (solo, en couple, en famille, entre amis,...)
-            <em>&#x2a;</em></label
-          >
-          <input id="customerPhone" name="customerPhone" type="text" />
+          <label for="travelType">
+            Type de voyage (solo, en couple, en famille, entre amis,...)
+            <em>&#x2a;</em>
+          </label>
+          <input id="travelType" name="travelType" type="text" required />
 
-          <label for="orderNumber"
-            >Budget par personne hors vols (en euros) <em>&#x2a;</em></label
-          >
-          <input id="orderNumber" name="orderNumber" type="text" />
+          <label for="budgetPerPerson">
+            Budget par personne hors vols (en euros) <em>&#x2a;</em>
+          </label>
+          <input
+            id="budgetPerPerson"
+            name="budgetPerPerson"
+            type="text"
+            required
+          />
 
-          <label for="customerNote"
-            >Vos envies pour ce voyage <em>&#x2a;</em></label
-          >
+          <label for="customerNote">
+            Vos envies pour ce voyage <em>&#x2a;</em>
+          </label>
           <textarea
             id="customerNote"
             name="customerNote"
-            required=""
+            required
             rows="4"
           ></textarea>
 
@@ -267,7 +288,6 @@
           avec notre équipe.
         </p>
 
-        <!-- Remplacez href par votre lien Calendly / Cal.com / autre -->
         <a
           class="modal-cta"
           href="https://calendly.com/"
@@ -284,28 +304,52 @@
       const modal = document.getElementById("successModal");
       const closeBtn = document.getElementById("modalClose");
 
-      // Ouvre la modale à la soumission du formulaire
-      form.addEventListener("submit", function (e) {
-        e.preventDefault(); // retire si tu veux que le form s'envoie vraiment
+      function encode(data) {
+        return Object.keys(data)
+          .map(
+            (key) =>
+              encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
+          )
+          .join("&");
+      }
 
-        // Ici tu peux ajouter ton appel fetch/AJAX pour envoyer les données
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-        modal.classList.add("is-open");
-        closeBtn.focus();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: encode(data),
+          });
+
+          if (response.ok) {
+            form.reset();
+            modal.classList.add("is-open");
+            closeBtn.focus();
+          } else {
+            alert("Une erreur est survenue. Merci de réessayer.");
+          }
+        } catch (error) {
+          alert("Une erreur est survenue. Merci de réessayer.");
+        }
       });
 
-      // Ferme en cliquant sur la croix
       closeBtn.addEventListener("click", closeModal);
 
-      // Ferme en cliquant en dehors de la carte
       modal.addEventListener("click", function (e) {
         if (e.target === modal) closeModal();
       });
 
-      // Ferme avec Échap
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.classList.contains("is-open"))
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
           closeModal();
+        }
       });
 
       function closeModal() {
