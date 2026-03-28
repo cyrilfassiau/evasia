@@ -37,7 +37,7 @@ body {
   border-bottom-style: none;
   border-bottom-color: currentcolor;
   border-radius: 10px;
-  background-color: hsla(var(--fc-primary-hsl));
+  background-color: #d28864;
   color: white;
   letter-spacing: 2px;
   font-weight: 700;
