@@ -215,7 +215,9 @@
       <section class="formcarry-container">
         <h1>Besoin d'une information? N'hésite pas à nous contacter!</h1>
         <br>
-        <form method="POST">
+        <form method="POST" id="contactForm" name="contact" data-netlify="true"
+          netlify-honeypot="bot-field"
+          netlify >
           <input type="text" name="name" placeholder="Nom" required />
           <input type="email" name="email" placeholder="Email" required />
           <textarea name="message" placeholder="Message" required></textarea>
