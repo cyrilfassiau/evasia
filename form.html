@@ -304,18 +304,27 @@
       const form = document.getElementById("travelForm");
       const modal = document.getElementById("successModal");
       const closeBtn = document.getElementById("modalClose");
+      const submitBtn = document.getElementById("customerOrder");
 
       function encode(data) {
         return Object.keys(data)
-          .map(
-            (key) =>
-              encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
-          )
+          .map((key) => {
+            const value = data[key] ?? "";
+            return encodeURIComponent(key) + "=" + encodeURIComponent(value);
+          })
           .join("&");
       }
 
-      form.addEventListener("submit", async function (e) {
+      async function handleSubmit(e) {
         e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "ENVOI...";
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
@@ -334,17 +343,29 @@
             modal.classList.add("is-open");
             closeBtn.focus();
           } else {
-            alert("Une erreur est survenue. Merci de réessayer.");
+            alert(
+              "Une erreur est survenue lors de l'envoi. Merci de réessayer.",
+            );
           }
         } catch (error) {
-          alert("Une erreur est survenue. Merci de réessayer.");
+          alert("Impossible d'envoyer le formulaire pour le moment.");
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "ENVOYER";
         }
-      });
+      }
 
+      function closeModal() {
+        modal.classList.remove("is-open");
+      }
+
+      form.addEventListener("submit", handleSubmit);
       closeBtn.addEventListener("click", closeModal);
 
       modal.addEventListener("click", function (e) {
-        if (e.target === modal) closeModal();
+        if (e.target === modal) {
+          closeModal();
+        }
       });
 
       document.addEventListener("keydown", function (e) {
@@ -352,10 +373,6 @@
           closeModal();
         }
       });
-
-      function closeModal() {
-        modal.classList.remove("is-open");
-      }
     </script>
   </body>
 </html>
