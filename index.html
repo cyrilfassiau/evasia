@@ -212,19 +212,36 @@
           
         </div>
       </section>
-      <section class="formcarry-container">
-        <h1>Besoin d'une information? N'hésite pas à nous contacter!</h1>
-        <br>
-        <form method="POST" id="contactForm" name="contact" data-netlify="true"
-          netlify-honeypot="bot-field"
-          netlify >
-          <input type="text" name="name" placeholder="Nom" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <textarea name="message" placeholder="Message" required></textarea>
-          <button type="submit">Envoyer</button>
-        </form>
-      </section>
-      
+     <section class="formcarry-container">
+  <h1>Besoin d'une information? N'hésite pas à nous contacter!</h1>
+  <br>
+
+  <form
+    method="POST"
+    id="contactForm"
+    name="contact"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    netlify
+  >
+    <!-- obligatoire -->
+    <input type="hidden" name="form-name" value="contact" />
+
+    <!-- honeypot -->
+    <p style="display: none;">
+      <label>
+        Ne pas remplir :
+        <input name="bot-field" />
+      </label>
+    </p>
+
+    <input type="text" name="name" placeholder="Nom" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <textarea name="message" placeholder="Message" required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
     </main>
     <footer></footer>
 
