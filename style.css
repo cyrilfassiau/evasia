@@ -10,6 +10,7 @@ a {
 }
 html {
   scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 
 /* RESET & GLOBAL */
@@ -474,7 +475,7 @@ form {
 
 .travel-form {
   width: 100vw;
-  background-color: #b7a58a;
+  background-color: rgb(210, 136, 100);
   padding-top: 20px;
   color: white;
   padding-bottom: 10px;
