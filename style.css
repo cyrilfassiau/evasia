@@ -329,6 +329,7 @@ img {
   font-weight: 600;
   text-align: center;
   padding: 20px;
+  font-family: "Old Standard TT", serif;
 }
 
 /* CONTACTS */
@@ -697,8 +698,10 @@ footer {
   }
 
 
+
   .wwd_text h1 {
     font-size: 45px;
+    
   }
 
   .about_text p {
@@ -793,7 +796,7 @@ footer {
   .about_box {
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
     gap: 25px;
   }
 
@@ -813,7 +816,7 @@ footer {
   .about_text p {
     font-size: 14px;
     width: 90%;
-    margin: auto;
+    
   }
 
   .wwd_box {
@@ -824,6 +827,7 @@ footer {
   .wwd_text h1 {
     font-size: 35px;
     text-align: center;
+    margin-bottom: 20px;
   }
 
   .wwd_text span {
@@ -858,7 +862,7 @@ footer {
   .contacts_box {
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
     gap: 20px;
   }
 
