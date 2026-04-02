@@ -23,17 +23,9 @@ main {
   padding: clamp(24px, 5vw, 50px) clamp(16px, 8vw, 100px);
   width: 100%;
   max-width: 900px;
-<<<<<<< HEAD
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  
-
-=======
   margin: auto;
   text-align: center;
   border-radius: 12px;
->>>>>>> a32598147e4c4eaee33145f0302b8433819eef37
 }
 
 .info_services > ul {
