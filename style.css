@@ -811,6 +811,7 @@ footer {
 
   .about_title {
     font-size: 35px;
+    text-align: center;
   }
 
   .about_text p {
@@ -851,7 +852,7 @@ footer {
   }
 
   .grid-item {
-    min-height: 220px;
+    max-height: 220px;
   }
 
   .center {
@@ -945,7 +946,7 @@ footer {
     top: 80px;
     right: -100%;
     flex-direction: column;
-    background-color: rgba(177, 150, 150, 1);
+    background-color: #d28864;;
     width: 60%;
     height: calc(100vh - 80px);
     justify-content: center;
