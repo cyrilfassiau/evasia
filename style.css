@@ -27,6 +27,7 @@ body {
 a {
   text-decoration: none;
   color: rgb(255, 255, 255);
+  font-family: "Montserrat", sans-serif;
 }
 
 main {
@@ -318,6 +319,14 @@ font-weight: bold;
 }
 
 .grid-item:hover img {
+  transform: scale(1.05);
+}
+
+.grid-item.touched .overlay-text {
+  opacity: 1;
+}
+
+.grid-item.touched img {
   transform: scale(1.05);
 }
 
@@ -708,6 +717,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .why > button {
@@ -717,10 +727,14 @@ footer {
   background-color: #d28864;
   border: none;
   font-size: 30px;
-  font-family: "Old Standard TT", serif;
+  
   padding: 20px;
   cursor: pointer;
   transition: all 100ms ease-in-out;
+}
+
+.why > button > a {
+font-family: "Old Standard TT", serif!important;
 }
 
 .why > button:hover {
@@ -1222,6 +1236,8 @@ footer {
     gap: 8px;
     text-align: center;
   }
+
+  
 }
 
 /* ===== NAV RESPONSIVE ===== */

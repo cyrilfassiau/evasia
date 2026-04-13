@@ -45,3 +45,13 @@ document.querySelector(".avis_next").addEventListener("click", () => {
   current = (current + 1) % cards.length;
   show(current);
 });
+
+document.querySelectorAll(".grid-item").forEach((item) => {
+  item.addEventListener("touchstart", () => {
+    // Retire la classe des autres items
+    document.querySelectorAll(".grid-item").forEach((el) => {
+      if (el !== item) el.classList.remove("touched");
+    });
+    item.classList.toggle("touched");
+  }, { passive: true });
+});
