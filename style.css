@@ -1024,6 +1024,15 @@ footer {
     width: 100%;
     font-size: 16px;
   }
+
+  .footer_container {
+    gap: 40px;
+    padding: 0 20px 50px;
+  }
+
+  .footer_brand {
+    max-width: 100%;
+  }
 }
 
 /* === Mobile (<768px) === */
@@ -1152,10 +1161,7 @@ footer {
     padding: 8px 16px;
   }
 
-  footer {
-    height: 60px;
-  }
-
+  
   .formcarry-container {
     padding: 20px 10px;
     margin: 0 auto;
@@ -1200,6 +1206,21 @@ footer {
   #travel-form form span {
     font-size: 16px;
     margin-top: 20px;
+  }
+
+  .footer_container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer_brand {
+    max-width: 100%;
+  }
+
+  .footer_bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
   }
 }
 
