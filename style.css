@@ -1,9 +1,4 @@
-@font-face {
-  font-family: "nagistademo";
-  src: url("fonts/nagista-demo-version.regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
@@ -142,10 +137,12 @@ img {
 
 .about_img {
   width: 50%;
-  flex-shrink: 0;
+height: 500px;
+  
   border-radius: 50% 50% 52% 48% / 53% 58% 42% 47%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 
 .about_text {
   width: 50%;
@@ -172,6 +169,10 @@ img {
   margin-bottom: 20px;
 }
 
+.about_center h3 {
+font-family: "Old Standard TT", serif;
+font-weight: bold;
+}
 .about_text p {
   font-size: 16px;
   max-width: 400px;
@@ -183,9 +184,7 @@ img {
   padding-left: 20px;
 }
 
-.about_text li {
-  margin-bottom: 8px;
-}
+
 
 /* WHAT WE DO */
 #whatwedo {
@@ -625,6 +624,270 @@ footer {
   transition: all 0.3s ease;
 }
 
+/* AVIS */
+.avis {
+  background-color: #f5efe6;
+  padding: 80px 20px;
+}
+
+.avis_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.avis_card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  transition: opacity 0.3s ease;
+}
+
+.avis_card.hidden {
+  display: none;
+}
+
+.avis_text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  font-style: italic;
+}
+
+.avis_name {
+  font-family: "Old Standard TT", serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d28864;
+}
+
+.avis_type {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #a9b79f;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.avis_arrow {
+  background: none;
+  border: 2px solid #d28864;
+  color: #d28864;
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avis_arrow:hover {
+  background-color: #d28864;
+  color: #fff;
+}
+
+
+.why{
+  width: 100%;
+  height: 200px;
+  background-color:  #f5efe6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why > button {
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  background-color: #d28864;
+  border: none;
+  font-size: 30px;
+  font-family: "Old Standard TT", serif;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+}
+
+.why > button:hover {
+  scale: 1.04;
+}
+
+
+/* FOOTER */
+footer {
+  height: auto;
+  background-color: #d28864;;
+  color: #f5efe6;
+  padding: 60px 20px 0;
+}
+
+.footer_container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer_brand {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 260px;
+}
+
+.footer_logo {
+  font-family: "Old Standard TT", serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.footer_brand p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(245, 239, 230, 0.7);
+}
+
+.footer_heading {
+  font-family: "Old Standard TT", serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer_nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer_nav ul a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: rgba(245, 244, 243, 0.75);
+  transition: color 0.2s ease;
+}
+
+.footer_nav ul a:hover {
+  color: #d28864;
+}
+
+.footer_contact {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer_email {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: rgba(245, 239, 230, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.footer_email:hover {
+  color: #d28864;
+}
+
+.footer_socials {
+  display: flex;
+  gap: 16px;
+}
+
+.footer_socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgba(245, 239, 230, 0.75);
+  transition: all 0.2s ease;
+}
+
+.footer_socials a:hover {
+  border-color: #d28864;
+  color: #d28864;
+}
+
+.footer_bottom {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: rgba(245, 239, 230, 0.4);
+}
+
+.footer_bottom a {
+  color: rgba(245, 239, 230, 0.4);
+  transition: color 0.2s ease;
+}
+
+.footer_bottom a:hover {
+  color: #d28864;
+}
+
+@media screen and (max-width: 767px) {
+  .footer_container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer_bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 767px) {
+  .avis_container {
+    gap: 15px;
+  }
+
+  .avis_card {
+    padding: 30px 20px;
+  }
+
+  .avis_text {
+    font-size: 14px;
+  }
+}
+
 /* ========= RESPONSIVE ========= */
 
 /* === Grand desktop === */
@@ -802,6 +1065,7 @@ footer {
 
   .about_img {
     margin-bottom: 20px;
+    height: 300px;
   }
 
   .about_img,

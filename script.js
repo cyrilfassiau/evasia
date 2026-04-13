@@ -26,3 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+const cards = document.querySelectorAll(".avis_card");
+let current = 0;
+
+function show(index) {
+  cards.forEach((card) => card.classList.add("hidden"));
+  cards[index].classList.remove("hidden");
+}
+
+document.querySelector(".avis_prev").addEventListener("click", () => {
+  current = (current - 1 + cards.length) % cards.length;
+  show(current);
+});
+
+document.querySelector(".avis_next").addEventListener("click", () => {
+  current = (current + 1) % cards.length;
+  show(current);
+});
