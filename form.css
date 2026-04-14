@@ -125,6 +125,13 @@ button:hover {
   border-bottom: 2px solid #f45702;
 }
 
+input[type="date"] {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+  display: block;
+}
+
 /* ====== AUTOFILL ====== */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
