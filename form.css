@@ -126,8 +126,9 @@ button:hover {
 }
 
 input[type="date"] {
-  width: 100% !important;
-  min-width: 0 !important;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   box-sizing: border-box;
   display: block;
 }
