@@ -74,4 +74,20 @@ form.addEventListener("submit", function (e) {
   form.reset();
 });
 
+const form2 = document.getElementById("travelForm");
 
+form2.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // 1. Email client (EmailJS)
+  emailjs.sendForm("service_u6olcpg", "template_l1macrb", this);
+
+  // 2. Envoi à Netlify (manuel)
+  fetch("/", {
+    method: "POST",
+    body: new FormData(this),
+  });
+
+  alert("Message envoyé ✨");
+  form2.reset();
+});
