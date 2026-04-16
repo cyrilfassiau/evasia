@@ -268,8 +268,10 @@ Si vous cherchez des travel planners pour préparer votre voyage à Bali, vous p
   <h1>Besoin d'une information ? N'hésitez pas à nous contacter !</h1>
   <br>
 
-  <form id="contactForm">
-  
+  <form id="contactForm" data-netlify="true"
+          netlify-honeypot="bot-field"
+          netlify>
+  <input type="hidden" name="form-name" value="contact" />  
   <input type="text" name="name" placeholder="Nom" required />
   
   <input type="email" name="email" placeholder="Email" required />
