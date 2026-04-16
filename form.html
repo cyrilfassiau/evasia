@@ -321,45 +321,45 @@
           .join("&");
       }
 
-      async function handleSubmit(e) {
-        e.preventDefault();
+     async function handleSubmit(e) {
+  e.preventDefault();
 
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = "ENVOI...";
+  submitBtn.disabled = true;
+  submitBtn.textContent = "ENVOI...";
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+  try {
+    const formData = new FormData(form);
 
-        try {
-          const response = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: encode(data),
-          });
+    // 1. EMAILJS (CLIENT)
+    await emailjs.sendForm(
+      "service_u6olcpg",
+      "template_l1macrb",
+      form
+    );
 
-          if (response.ok) {
-            form.reset();
-            modal.classList.add("is-open");
-            closeBtn.focus();
-          } else {
-            alert(
-              "Une erreur est survenue lors de l'envoi. Merci de réessayer.",
-            );
-          }
-        } catch (error) {
-          alert("Impossible d'envoyer le formulaire pour le moment.");
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "ENVOYER";
-        }
-      }
+    // 2. NETLIFY (TOI)
+    await fetch("/", {
+      method: "POST",
+      body: formData,
+    });
+
+    // 3. UI SUCCESS
+    form.reset();
+    modal.classList.add("is-open");
+
+  } catch (error) {
+    console.error("Erreur envoi:", error);
+    alert("Erreur lors de l'envoi, réessayez.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "ENVOYER";
+  }
+}
 
       function closeModal() {
         modal.classList.remove("is-open");
