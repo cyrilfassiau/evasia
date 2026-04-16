@@ -6,6 +6,7 @@
 html {
   scroll-behavior: smooth;
   overscroll-behavior: none;
+   scroll-padding-top: 80px;
   overflow-x: hidden;
 }
 
@@ -174,6 +175,8 @@ height: 500px;
 font-family: "Old Standard TT", serif;
 font-weight: bold;
 }
+
+
 .about_text p {
   font-size: 16px;
   max-width: 400px;
