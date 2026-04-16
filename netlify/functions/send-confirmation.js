@@ -28,7 +28,7 @@ export async function handler(event) {
     // 📩 EMAIL POUR TOI
     await resend.emails.send({
       from: "Evasia <onboarding@resend.dev>",
-      to: "hello@evasia.com",
+      to: "cyril.fassiau@hotmail.com",
       subject: "Nouveau message reçu 📩",
       html: `
         <h2>Nouveau contact</h2>
