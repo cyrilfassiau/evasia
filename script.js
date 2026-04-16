@@ -55,3 +55,29 @@ document.querySelectorAll(".grid-item").forEach((item) => {
     item.classList.toggle("touched");
   }, { passive: true });
 });
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const data = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+  };
+
+  try {
+    await fetch("/.netlify/functions/send-confirmation", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    alert("Message envoyé ! Vous allez recevoir un email de confirmation ✨");
+    form.reset();
+  } catch (error) {
+    alert("Erreur, veuillez réessayer.");
+  }
+});
