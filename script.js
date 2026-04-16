@@ -56,3 +56,39 @@ document.querySelectorAll(".grid-item").forEach((item) => {
   }, { passive: true });
 });
 
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const button = form.querySelector("button");
+  button.innerText = "Envoi...";
+
+  // 1️⃣ Email pour le client
+  const sendClient = emailjs.sendForm(
+    "service_u6olcpg",
+    "template_53gk2ip",
+    this
+  );
+
+  // 2️⃣ Email pour toi
+  const sendAdmin = emailjs.sendForm(
+    "service_u6olcpg",
+    "template_9zidht9",
+    this
+  );
+
+  Promise.all([sendClient, sendAdmin])
+    .then(() => {
+      alert("Message envoyé ✨");
+      form.reset();
+      button.innerText = "Envoyer";
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Erreur lors de l'envoi 😢");
+      button.innerText = "Envoyer";
+    });
+});
+
+
