@@ -62,7 +62,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   // 1. Email client (EmailJS)
-  emailjs.sendForm("service_u6olcpg", "template_client", this);
+  emailjs.sendForm("service_u6olcpg", "template_53gk2ip", this);
 
   // 2. Envoi à Netlify (manuel)
   fetch("/", {
